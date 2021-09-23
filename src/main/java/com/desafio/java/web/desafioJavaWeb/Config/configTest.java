@@ -1,4 +1,4 @@
-package com.desafio.java.web.desafioJavaWeb.config;
+package com.desafio.java.web.desafioJavaWeb.Config;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -8,10 +8,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.desafio.java.web.desafioJavaWeb.entities.Evento;
-import com.desafio.java.web.desafioJavaWeb.entities.Usuario;
-import com.desafio.java.web.desafioJavaWeb.repositories.EventoRepository;
-import com.desafio.java.web.desafioJavaWeb.repositories.UsuarioRepository;
+import com.desafio.java.web.desafioJavaWeb.Entities.Evento;
+import com.desafio.java.web.desafioJavaWeb.Entities.Usuario;
+import com.desafio.java.web.desafioJavaWeb.Repositories.EventoRepository;
+import com.desafio.java.web.desafioJavaWeb.Repositories.UsuarioRepository;
 
 @Configuration
 @Profile("test")
