@@ -22,5 +22,9 @@ public class UsuarioService {
 	public Optional<Usuario> findById(Long id){
 		return uRepo.findById(id); 
 	}
+	
+	public Usuario addUsuario(Usuario u) {
+		return uRepo.save(u);
+	}
 
 }

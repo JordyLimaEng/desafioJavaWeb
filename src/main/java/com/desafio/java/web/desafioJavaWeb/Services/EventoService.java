@@ -22,4 +22,8 @@ public class EventoService {
 	public Optional<Evento> findById(Long id) {
 		return eRepo.findById(id);
 	}
+	
+	public Evento addEvento(Evento e) {
+		return eRepo.save(e);
+	}
 }
