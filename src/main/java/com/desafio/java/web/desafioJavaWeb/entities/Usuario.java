@@ -16,4 +16,11 @@ public class Usuario implements Serializable{
 	@Id @GeneratedValue
 	private Long id;
 	private String nome;
+	
+	public Usuario(Long id, String nome) {
+		super();
+		this.id = id;
+		this.nome = nome;
+	}	
+	
 }

@@ -1,29 +1,26 @@
-package com.desafio.java.web.desafioJavaWeb.Resources;
+package com.desafio.java.web.desafioJavaWeb.resources;
+
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.desafio.java.web.desafioJavaWeb.entities.Evento;
 import com.desafio.java.web.desafioJavaWeb.entities.Usuario;
+import com.desafio.java.web.desafioJavaWeb.repositories.UsuarioRepository;
 
 
 @RestController
-@RequestMapping(value = "/usuario")
+@RequestMapping(value = "/usuarios")
 public class UsuarioResource {
 	
+	UsuarioRepository usuarioRepository;
+	
 	@GetMapping
-	public ResponseEntity<Usuario> findUsuarioById(){
-		Long id = 1L;
-		String nome = "USUARIO TESTE";
+	public ResponseEntity<List<Usuario>> findUsuarioById(){		
 		
-		Usuario u = new Usuario();	
-
-		u.setId(id);
-		u.setNome(nome);
-		
-		return ResponseEntity.ok().body(u);		
+		return ResponseEntity.ok().body(usuarioRepository.findAll());		
 	}
 	
 	

@@ -21,6 +21,13 @@ public class Evento implements Serializable{
 	private int vagas;	
 	private Date dataInicio;
 	private Date dataFim;
-	
+	public Evento(Long id, String nome, int vagas, Date dataInicio, Date dataFim) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.vagas = vagas;
+		this.dataInicio = dataInicio;
+		this.dataFim = dataFim;
+	}	
 	
 }
