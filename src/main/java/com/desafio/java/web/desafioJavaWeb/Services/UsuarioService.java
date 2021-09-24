@@ -1,7 +1,6 @@
 package com.desafio.java.web.desafioJavaWeb.Services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,12 +18,22 @@ public class UsuarioService {
 		return uRepo.findAll(); 
 	}
 	
-	public Optional<Usuario> findById(Long id){
-		return uRepo.findById(id); 
+	public Usuario findById(Long id){
+		return uRepo.findById(id).get(); 
 	}
 	
 	public Usuario addUsuario(Usuario u) {
 		return uRepo.save(u);
+	}
+	
+	public Usuario updateUsuario(Long id, Usuario obj) {
+		findById(obj.getId());
+		return uRepo.save(obj);
+	}
+
+	public void deleteUsuario(Long id) {
+		findById(id);
+		uRepo.deleteById(id);
 	}
 
 }
