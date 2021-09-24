@@ -40,7 +40,7 @@ public class EventoResource {
 	public ResponseEntity<Evento> saveEvento(@RequestBody Evento e) {
 		e = eService.addEvento(e);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(e.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+		return ResponseEntity.created(uri).body(e);
 	}
 
 	@DeleteMapping(path = "/{id}")
@@ -51,6 +51,7 @@ public class EventoResource {
 	
 	@PutMapping(path = "/{id}")
 	public ResponseEntity<Evento> updateEvento(@PathVariable(value="id") Long id, @RequestBody Evento e){
+		e.setId(id);
 		e = eService.updateEvento(id, e);
 		return ResponseEntity.ok().body(e);
 	}

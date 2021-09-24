@@ -1,7 +1,7 @@
 package DTO.Evento;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.desafio.java.web.desafioJavaWeb.Entities.Evento;
@@ -19,8 +19,8 @@ public class EventoDTO implements Serializable{
 	private Long id;
 	private String nome;
 	private int vagas;
-	private Date dataInicio;
-	private Date dataFim;
+	private LocalDateTime dataInicio;
+	private LocalDateTime dataFim;
 	
 	private List<Usuario> usuarios;
 	

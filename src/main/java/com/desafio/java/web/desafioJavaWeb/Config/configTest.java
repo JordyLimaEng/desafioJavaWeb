@@ -1,7 +1,7 @@
 package com.desafio.java.web.desafioJavaWeb.Config;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -25,17 +25,6 @@ public class configTest implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception{
-		Usuario u1 = new Usuario(null, "João Lira");
-		Usuario u2 = new Usuario(null, "Emanuel Lima");
-		Usuario u3 = new Usuario(null, "Patricia Olivia");
-		usuarioRepository.saveAll(Arrays.asList(u1,u2,u3));
-		
-		Date dataInicio = new Date(), dataFim = new Date();
-		Evento e1 = new Evento(null,"Cinema", 30, dataInicio, dataFim);
-		Evento e2 = new Evento(null,"Hidro", 15, dataInicio, dataFim);
-		Evento e3 = new Evento(null,"Caminhada", 25, dataInicio, dataFim);
-		eventoRepository.saveAll(Arrays.asList(e1,e2,e3));
-		
 		
 	}
 

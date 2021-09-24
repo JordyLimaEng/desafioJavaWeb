@@ -9,6 +9,7 @@ import com.desafio.java.web.desafioJavaWeb.Entities.Evento;
 import com.desafio.java.web.desafioJavaWeb.Entities.Usuario;
 import com.desafio.java.web.desafioJavaWeb.Repositories.EventoRepository;
 import com.desafio.java.web.desafioJavaWeb.Repositories.UsuarioRepository;
+import com.desafio.java.web.desafioJavaWeb.Services.Exceptions.ResourceNotFoundException;
 
 import DTO.CodigosUsuario;
 
@@ -26,7 +27,7 @@ public class EventoService {
 	}
 	
 	public Evento findById(Long id) {		
-		return eRepo.findById(id).orElse(null);
+		return eRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public Evento addEvento(Evento e) {

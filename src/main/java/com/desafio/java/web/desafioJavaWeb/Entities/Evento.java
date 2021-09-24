@@ -1,12 +1,11 @@
 package com.desafio.java.web.desafioJavaWeb.Entities;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,7 +14,6 @@ import javax.persistence.ManyToMany;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -33,15 +31,15 @@ public class Evento implements Serializable {
 	private int vagas;
 	
 	@JsonFormat(pattern="dd/MM/yyyy HH:mm")
-	private Date dataInicio;
+	private LocalDateTime dataInicio;
 	
 	@JsonFormat(pattern="dd/MM/yyyy HH:mm")
-	private Date dataFim;
+	private LocalDateTime dataFim;
 
 	@ManyToMany(mappedBy="eventos")
 	private List<Usuario> usuarios = new ArrayList<>();
 
-	public Evento(Long id, String nome, int vagas, Date dataInicio, Date dataFim) {
+	public Evento(Long id, String nome, int vagas, LocalDateTime dataInicio, LocalDateTime dataFim) {
 		super();
 		this.id = id;
 		this.nome = nome;
