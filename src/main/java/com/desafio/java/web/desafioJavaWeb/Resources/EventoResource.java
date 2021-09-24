@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.desafio.java.web.desafioJavaWeb.Entities.Evento;
+import com.desafio.java.web.desafioJavaWeb.Entities.Usuario;
 import com.desafio.java.web.desafioJavaWeb.Services.EventoService;
+import com.desafio.java.web.desafioJavaWeb.Services.UsuarioService;
+import com.desafio.java.web.desafioJavaWeb.Services.utils.UsuarioEvento;
 
 @RestController
 @RequestMapping(value = "/eventos")
@@ -25,6 +28,8 @@ public class EventoResource {
 	@Autowired
 	private EventoService eService;
 	
+	@Autowired
+	private UsuarioService uService;	
 
 	@GetMapping
 	public ResponseEntity<List<Evento>> findAllEvento() {
@@ -54,6 +59,11 @@ public class EventoResource {
 		e.setId(id);
 		e = eService.updateEvento(id, e);
 		return ResponseEntity.ok().body(e);
+	}
+	
+	@PostMapping(value = "/{id}")
+	public ResponseEntity<UsuarioEvento> inscreverUsuarioNoEvento(@PathVariable Long id, @RequestBody Usuario u) {
+		return ResponseEntity.ok().body(uService.inscrever(id, u));
 	}
 
 }

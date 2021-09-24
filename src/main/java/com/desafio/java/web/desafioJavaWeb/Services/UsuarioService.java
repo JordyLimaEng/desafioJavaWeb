@@ -46,15 +46,14 @@ public class UsuarioService {
 	}
 	
 	public UsuarioEvento inscrever(Long id, Usuario u) {
-		Optional<Evento> opt = eRepo.findById(id);		
-		Evento e = opt.orElseThrow(() -> new ResourceNotFoundException(id));
+		Evento e  = eRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
 		Integer vagas = e.getVagas();
 		List<Usuario> list = e.getUsuarios();
 		LocalDateTime agora = LocalDateTime.now();
 
 		if(list.size() < vagas) {
 			e.getUsuarios().add(u);
-			return new UsuarioEvento("O usuario"+ u.getNome() +" inscrito no evento com sucesso!");
+			return new UsuarioEvento("O usuario "+ u.getNome() +" foi inscrito no evento com sucesso!");
 		}
 		if (agora.compareTo(e.getDataInicio().plusHours(-1)) >= 0 )  {
 			return new UsuarioEvento("Não foi possível inscrever o usuario, data atual depois da expiração!");

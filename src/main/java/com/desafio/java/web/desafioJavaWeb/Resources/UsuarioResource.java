@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.desafio.java.web.desafioJavaWeb.Entities.Usuario;
 import com.desafio.java.web.desafioJavaWeb.Services.UsuarioService;
+import com.desafio.java.web.desafioJavaWeb.Services.utils.UsuarioEvento;
 
 @RestController
 @RequestMapping(value = "/usuarios")
@@ -48,5 +49,6 @@ public class UsuarioResource {
 	public ResponseEntity<Usuario> update(@PathVariable Long id, @RequestBody Usuario obj) {
 		obj = uService.updateUsuario(id, obj);
 		return ResponseEntity.ok().body(obj);
-	}
+	}	
+	
 }

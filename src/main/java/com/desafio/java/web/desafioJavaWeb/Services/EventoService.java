@@ -42,15 +42,5 @@ public class EventoService {
 	public void deleteEvento(Long id) {
 		eRepo.deleteById(id);
 	}
-	
-	
-	public Evento addUsuarioToEvento(Long pathId, List<CodigosUsuario> codigosUsuario) {
-			Evento e = eRepo.findById(pathId).orElse(null);			
-			
-			
-			
-			
-		return e;
-	}
 
 }
